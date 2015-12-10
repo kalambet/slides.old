@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>IBM Bluemix in the nutshell</title>
+	<meta charset='utf-8'>
+	<link rel='stylesheet' href='https://s3.amazonaws.com/technogeek/css/bootstrap.min.css'/>
+	<link rel='stylesheet' href='https://s3.amazonaws.com/technogeek/css/bootstrap-theme.min.css'/>
+	<link rel='stylesheet' href='https://s3.amazonaws.com/technogeek/css/style.css'/>
+	<script src='https://s3.amazonaws.com/technogeekslides/slides.js'></script>
+  </head>
+
+  <body style='display: none'>
+
+  <section class='slides layout-widescreen'>
+	<article>
+	  <h1>IBM Bluemix in the nutshell</h1>
+	  </br>
+	  <div class="presenter">
+		<p>
+			Игорь Хапов, Пётр Каламбет
+		</p>
+		<p>
+			IBM
+		</p>
+		<p>
+			Science and Technology Center
+		</p>
+	  </div>
+	</article>
+
+	<article>
+	  <h3>Стандартный слайд про IBM Bluemix</h3>
+	  <p>
+		<img src="img/capabilities.png"/>
+	  </p>
+	</article>
+
+	<article>
+	  <h3>Как это устроено?</h3>
+	  <p>
+		<img src="img/architecture.png"/>
+	  </p>
+	</article>
+
+    <article>
+	  <h3>Instant Runtimes</h3>
+	  <p>
+		Архитектура приложения
+	  </p>
+	  <p>
+		<img src="img/runtimes.png"/>
+	  </p>
+	</article>
+
+	<article>
+	  <h3>Что Instant Runtimes значат для разработчика?</h3>
+	  <ul>
+		<li>Простота развёртывания - оперируем кодом</li>
+        <li>Простота использования - приложение уже имеет закреплённое за ним имя</li>
+        <li>Для увеличения производительности - плодим дубликаты приложения</li>
+		<li>Локальный набор сервисв и набор сервисв в Bluemix могут отличаться</li>
+		<li>Синдром "works on my machine"</li>
+	  </ul>
+	</article>
+
+	<article>
+	  <h3>ЧЗВ по Instant Runtimes</h3>
+	  <p>
+		<b>Почему так медленно исходынй код загружается в Bluemix?</b>
+	  </p>
+	</article>
+
+    <article>
+      <h3>Instant Runtimes</h3>
+      <p>
+        <img src="img/runtimes.png"/>
+      </p>
+    </article>
+
+    <article>
+	  <h3>ЧЗВ по Instant Runtimes</h3>
+	  <p>
+		<b>Почему так медленно исходынй код загружается в Bluemix?</b>
+	  </p>
+      <br>
+      <p>
+        Runtime (среда исполненеия) это:
+        <ul>
+          <li>Образ ОС</li>
+          <li>Дистрибутивы того, что будет исполнять код: Liberty, node.js, Python etc.</li>
+          <li>Зависимости (внешние модули), которые не идут в составе нашего кода, а должны быть загружены автоматически</li>
+        </ul>
+      </p>
+	</article>
+
+    <article>
+      <h3>ЧЗВ по Instant Runtimes</h3>
+      <p>
+        <b>Тогда почему так быстро?</b>
+      </p>
+      <br>
+      <p>
+        Потому что из кода и среды исполнения создаются контейнеры
+      </p>
+    </article>
+
+    <article>
+      <h3>IBM Containers</h3>
+      <p>
+        Что такое контейнеры?
+      </p>
+      <p>
+        Контейнер - это функционал, вытекающий из особенностей ядра ОС Linux, который позволяет создавать незвисимые "песочницы" для всех приложений, исполняемых внутри контейнеров
+      </p>
+      <br>
+      <p>
+        Контейнеры под Windows, MacOS и т.д. - это виртуальные машины с OC Linux, на которых и запускаются конейнеры
+      </p>
+    </article>
+
+    <article>
+      <h3>IBM Containers</h3>
+      <p>
+        Из чего состоит контейнер?
+      </p>
+      <br>
+      <ul>
+        <li>Образ ОС</li>
+        <li>Дистрибутивы того, что будет исполнять код: Liberty, node.js, Python etc.</li>
+        <li>Зависимости (внешние модули), которые будет использовать наш код</li>
+        <li>Код</li>
+      </ul>
+      <br>
+      <p>
+        Получившийся "сендвич" называется <em>образом</em> контейнера
+      </p>
+      <p>
+        На базе такого образа и запускается сам контейнер
+      </p>
+    </article>
+
+    <article>
+      <h3>Особенности контейнеров</h3>
+      <ul>
+		<li>Жизненный цикл максимально прост, если что-то случилось убиваем существующий контейнер и поднимаем на базе закешированного образа новый</li>
+        <li>Ничего не хранится локально</li>
+		<li>Для хранения используются внешние ресурсы</li>
+	  </ul>
+    </article>
+
+    <article>
+      <h3>Что IBM Containers значат для разработчика?</h3>
+      <ul>
+		<li>Оперируем образом</li>
+        <li>100% одиаковая воспроизводимость кода и окружения</li>
+        <li>Для увеличения производительности - плодим дубликаты контейнеров</li>
+		<li>Для IBM Containers использоване Bluemix сервисов возможно, но через proxy Instant Runtime прилоежние</li>
+		<li>Пока об оркестрации контейров надо думать самому</li>
+	  </ul>
+    </article>
+
+    <article>
+      <h3>Сухой остаток</h3>
+      // TODO: красивая картинка!
+    </article>
+
+    <article>
+      <h3>Bluemix DevOps Services</h3>
+      <ul>
+        <li>Auto-Scaling</li>
+        <li>Monitoring and Analytics</li>
+        <li>Delivery Pipeline</li>
+        <li>Track &amp; Plan</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Auto-Scaling</h3>
+      <ul>
+        <li>Утилизация CPU, %</li>
+        <li>Утилизация JVM Heap, %</li>
+        <li>Утилизация памяти, %</li>
+        <li> . . . </li>
+      </ul>
+      <br>
+      <p>
+      При выходе за допустимые границы - плодим дубликаты или убиваем лишнее
+      </p>
+    </article>
+
+    <article>
+      <h3>Monitoring and Analytics</h3>
+      <p>
+        <ul>
+          <li>Можем смотреть лог доступности приложения во времени</li>
+          <li>Анализировать производительность
+            <ul>
+              <li>Необычные всплески активности CPU</li>
+              <li>Утилизация памяти</li>
+              <li> . . . </li>
+            </ul>
+          </li>
+          <li>Собирать и анализировать логи, которые пишет само приложение</li>
+        </ul>
+      </p>
+    </article>
+
+    <article>
+	  <h3>Delivery Pipeline</h3>
+	  <p>
+		Позволяет автоматизировать процесс всех основных стадий: build, deploy, run и test
+	  </p>
+	  <ul>
+		<li>Все этапы организуются в конвеер (Pipeline)</li>
+		<li>Каждый этап это:
+		  <ul>
+			<li>Входные данные (обновление исходного кода, окончание билда и т.п.)</li>
+			<li>Набор работ (сборка исходных кодов, деплой в Bluemix, запуск тестов и т.п.)</li>
+		  </ul>
+		</li>
+        <li>Онлайн редактор кода на базе Eclipse</li>
+	  </ul>
+	</article>
+
+    <article>
+	  <h3>Track &amp; Plan</h3>
+	  <p>
+		Agile(Scrum), управление проектами
+	  </p>
+	</article>
+
+	<article>
+	<h3>Спасибо!</h3>
+	  <div class="presenter">
+		<p>
+		  Игорь Хапов, Пётр Каламбет
+		</p>
+		<p>
+		  IBM
+		</p>
+		</br>
+        <p class="link"><a href="mailto:khapov.igor@ru.ibm.com" target="_blank">khapov.igor@ru.ibm.com</a></p>
+		<p class="link"><a href="mailto:peter.kalambet@ru.ibm.com" target="_blank">peter.kalambet@ru.ibm.com</a></p>
+		</br>
+		<p>Ссылка на слайды: <a href="http://slides.technogeek.io/bluemix">http://slides.technogeek.io/bluemix-nutshell</a></p>
+	  </div>
+	</article>
+
+  </section>
+	<div id="help">
+	  Используйте стрелки вправо и влево или правый и левый края слайдов для навигации.<br>
+	  (Нажмите 'h' или начините переключаться между слайдами, чтобы скрыть это сообщение)
+	</div>
+  </body>
+  <script src='https://s3.amazonaws.com/technogeekslides/play.js'></script>
+
+</html>

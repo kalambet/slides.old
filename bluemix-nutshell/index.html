@@ -7,6 +7,7 @@
 	<link rel='stylesheet' href='https://s3.amazonaws.com/technogeek/css/bootstrap.min.css'/>
 	<link rel='stylesheet' href='https://s3.amazonaws.com/technogeek/css/bootstrap-theme.min.css'/>
 	<link rel='stylesheet' href='https://s3.amazonaws.com/technogeek/css/style.css'/>
+    <link rel='stylesheet' href='./style.css'/>
 	<script src='https://s3.amazonaws.com/technogeekslides/slides.js'></script>
   </head>
 
@@ -69,29 +70,24 @@
 	  <p>
 		<b>Почему так медленно исходынй код загружается в Bluemix?</b>
 	  </p>
-	</article>
-
-    <article>
-      <h3>Instant Runtimes</h3>
-      <p>
-        <img src="img/runtimes.png"/>
-      </p>
-    </article>
-
-    <article>
-	  <h3>ЧЗВ по Instant Runtimes</h3>
-	  <p>
-		<b>Почему так медленно исходынй код загружается в Bluemix?</b>
-	  </p>
-      <br>
-      <p>
-        Runtime (среда исполненеия) это:
-        <ul>
-          <li>Образ ОС</li>
-          <li>Дистрибутивы того, что будет исполнять код: Liberty, node.js, Python etc.</li>
-          <li>Зависимости (внешние модули), которые не идут в составе нашего кода, а должны быть загружены автоматически</li>
-        </ul>
-      </p>
+      <div>
+        <div class="row">
+          <div class="half-size-image col-md-6">
+            <img src="img/runtime-container.png">
+          </div>
+          <div class="col-md-6">
+              <p>
+                <br>
+                Runtime (среда исполненеия) это:
+                <ul>
+                  <li>Образ ОС</li>
+                  <li>Дистрибутивы того, что будет исполнять код: Liberty, node.js, Python etc.</li>
+                  <li>Зависимости (внешние модули), которые не идут в составе нашего кода, а должны быть загружены автоматически</li>
+                </ul>
+              </p>
+          </div>
+        </div>
+      </div>
 	</article>
 
     <article>
@@ -162,7 +158,9 @@
 
     <article>
       <h3>Сухой остаток</h3>
-      // TODO: красивая картинка!
+      <div class="text-center full-size-image">
+        <img src="img/arch-results.png">
+      </div>
     </article>
 
     <article>
